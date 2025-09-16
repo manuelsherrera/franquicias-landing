@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiénes somos - Franquicias</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="text-xl font-bold">Franquicias</div>
+      <!-- Menú desktop -->
+      <nav class="hidden md:flex gap-6">
+        <a href="index.html" class="hover:text-blue-600">Inicio</a>
+        <a href="quienes-somos.html" class="hover:text-blue-600 font-semibold">Quiénes somos</a>
+        <a href="index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
+        <a href="index.html#contacto" class="hover:text-blue-600">Contacto</a>
+      </nav>
+      <!-- Botón hamburguesa (solo en móvil) -->
+      <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    </div>
+  </header>
+
+  <!-- Menú móvil oculto -->
+  <div id="mobileMenu"
+    class="hidden flex-col gap-4 bg-white shadow-md absolute top-16 right-4 p-6 rounded-lg md:hidden">
+    <a href="index.html" class="hover:text-blue-600">Inicio</a>
+    <a href="quienes-somos.html" class="hover:text-blue-600 font-semibold">Quiénes somos</a>
+    <a href="index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
+    <a href="index.html#contacto" class="hover:text-blue-600">Contacto</a>
+  </div>
+
+  <!-- CONTENIDO -->
+  <section class="max-w-4xl mx-auto px-6 py-12">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-center">Quiénes somos</h1>
+    <p class="text-gray-700 text-lg leading-relaxed text-center">
+      Aquí va la explicación de quiénes somos como empresa.
+      Este texto es un placeholder: reemplazarlo con la historia, misión y valores reales cuando los tenga listos.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-sm text-gray-500">
+    © 2025 Catálogo de Franquicias
+  </footer>
+
+  <!-- Script menú hamburguesa -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>
