@@ -24,10 +24,10 @@
     </header>
     <!-- Menú móvil -->
     <div id="mobileMenu"
-        class="hidden flex-col gap-4 bg-white shadow-md absolute top-16 right-4 p-6 rounded-lg md:hidden">
-        <a href="quienes-somos.html" class="hover:text-blue-600">Quiénes somos</a>
-        <a href="#catalogo" class="hover:text-blue-600">Catálogo</a>
-        <a href="#contacto" class="hover:text-blue-600">Contacto</a>
+        class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-16 right-4 w-48 rounded-lg md:hidden">
+        <a href="quienes-somos.html" class="block px-4 py-2 hover:text-blue-600">Quiénes somos</a>
+        <a href="#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
+        <a href="#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
     </div>
 
     <section id="quienes-somos" class="max-w-4xl mx-auto px-6 py-12">
@@ -173,7 +173,13 @@
         const mobileMenu = document.getElementById('mobileMenu');
 
         menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('max-h-0')) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-60', 'p-2');
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-60', 'p-2');
+            }
         });
     </script>
 
