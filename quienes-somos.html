@@ -55,7 +55,13 @@
     const mobileMenu = document.getElementById('mobileMenu');
 
     menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
+      if (mobileMenu.classList.contains('max-h-0')) {
+        mobileMenu.classList.remove('max-h-0');
+        mobileMenu.classList.add('max-h-60', 'p-2');
+      } else {
+        mobileMenu.classList.add('max-h-0');
+        mobileMenu.classList.remove('max-h-60', 'p-2');
+      }
     });
   </script>
 </body>
