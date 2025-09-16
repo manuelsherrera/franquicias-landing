@@ -11,9 +11,11 @@
 <body class="bg-gray-50 text-gray-800 font-sans">
 
   <!-- HEADER -->
-  <header class="bg-white shadow-md">
+  <!-- HEADER -->
+  <header class="bg-white shadow-md relative">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="text-xl font-bold">Franquicias</div>
+
       <!-- Menú desktop -->
       <nav class="hidden md:flex gap-6">
         <a href="index.html" class="hover:text-blue-600">Inicio</a>
@@ -21,8 +23,18 @@
         <a href="index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
         <a href="index.html#contacto" class="hover:text-blue-600">Contacto</a>
       </nav>
-      <!-- Botón hamburguesa (solo en móvil) -->
+
+      <!-- Botón hamburguesa (solo móvil) -->
       <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+    </div>
+
+    <!-- Menú móvil desplegable -->
+    <div id="mobileMenu"
+      class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-full right-4 w-48 rounded-lg md:hidden">
+      <a href="index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
+      <a href="quienes-somos.html" class="block px-4 py-2 hover:text-blue-600 font-semibold">Quiénes somos</a>
+      <a href="index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
+      <a href="index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
     </div>
   </header>
 
