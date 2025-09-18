@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiénes somos - En construcción</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* Fondo estilo blueprint */
+        body {
+            background-color: #0a2a43;
+            background-image:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #fff;
+        }
+
+        /* Animación engranajes */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .gear {
+            display: inline-block;
+            animation: spin 6s linear infinite;
+        }
+
+        .gear.fast {
+            animation-duration: 3s;
+        }
+
+        /* Máquina de escribir en loop */
+        .typing {
+            overflow: hidden;
+            border-right: .15em solid #FFD700;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .05em;
+            width: 0;
+            animation: typing 3.5s steps(30, end) infinite alternate,
+                blink .8s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 18ch
+            }
+
+            /* número de caracteres visibles */
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center h-screen font-sans text-center px-6">
+
+    <div>
+        <!-- Engranajes animados -->
+        <div class="flex justify-center items-center gap-6 mb-6">
+            <i data-feather="settings" class="gear w-14 h-14 text-yellow-400"></i>
+            <i data-feather="settings" class="gear fast w-10 h-10 text-yellow-500"></i>
+            <i data-feather="settings" class="gear w-8 h-8 text-yellow-300"></i>
+        </div>
+
+        <!-- Texto animado máquina de escribir en loop -->
+        <p class="typing text-lg md:text-xl text-yellow-300 mb-6">
+            Cargando nuestra historia...
+        </p>
+
+        <!-- Título -->
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">🚧 Estamos construyendo nuestra franquicia</h1>
+
+        <!-- Subtítulo -->
+        <p class="text-lg md:text-xl text-gray-200 mb-8">
+            Así como una franquicia se construye paso a paso, también lo hacemos con esta página.
+            Muy pronto conocerás quiénes somos y nuestra historia.
+        </p>
+
+        <!-- Botón regresar -->
+        <a href="index.html"
+            class="bg-yellow-400 text-black font-semibold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">
+            🔙 Volver a la página principal
+        </a>
+    </div>
+
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

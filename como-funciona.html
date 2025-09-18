@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cómo funciona - Franquicias</title>
+  <title>Quiénes somos - Franquicias</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN -->
+  <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -18,7 +20,7 @@
       <!-- Menú desktop -->
       <nav class="hidden md:flex gap-6">
         <a href="index.html" class="hover:text-blue-600">Inicio</a>
-        <a href="como-funciona.html" class="hover:text-blue-600 font-semibold">Cómo funciona</a>
+        <a href="quienes-somos.html" class="hover:text-blue-600 font-semibold">Quiénes somos</a>
         <a href="index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
         <a href="index.html#contacto" class="hover:text-blue-600">Contacto</a>
       </nav>
@@ -31,7 +33,7 @@
     <div id="mobileMenu"
       class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-full right-4 w-48 rounded-lg md:hidden">
       <a href="index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
-      <a href="como-funciona.html" class="block px-4 py-2 hover:text-blue-600 font-semibold">Cómo funciona</a>
+      <a href="quienes-somos.html" class="block px-4 py-2 hover:text-blue-600 font-semibold">Quiénes somos</a>
       <a href="index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
       <a href="index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
     </div>
@@ -41,27 +43,30 @@
   <section class="bg-blue-600 text-white text-center py-20 px-6">
     <h1 class="text-3xl md:text-5xl font-bold mb-4">👉 Invierte en franquicias desde 500 €</h1>
     <p class="text-lg md:text-2xl mb-8">Nosotros gestionamos, tú recibes los beneficios.</p>
-    <a href="#cta-final"
+    <!-- Botón actualizado -->
+    <a href="#como-funciona"
       class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Quiero invertir</a>
   </section>
 
   <!-- CÓMO FUNCIONA -->
-  <section class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">Cómo funciona</h2>
-    <div class="space-y-6">
-      <div>
+  <section id="como-funciona" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">Cómo funciona</h2>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <i data-feather="briefcase" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
         <h3 class="font-semibold text-xl mb-2">1. Elige una franquicia</h3>
-        <p>Accede a oportunidades seleccionadas con información clara: marca, sector, inversión inicial, proyección de
-          rentabilidad.</p>
+        <p class="text-gray-600">Accede a oportunidades seleccionadas con información clara: marca, sector, inversión
+          inicial y rentabilidad.</p>
       </div>
-      <div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <i data-feather="credit-card" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
         <h3 class="font-semibold text-xl mb-2">2. Invierte fácilmente</h3>
-        <p>Participa desde cantidades bajas y conviértete en socio de una franquicia real.</p>
+        <p class="text-gray-600">Participa desde cantidades bajas y conviértete en socio de una franquicia real.</p>
       </div>
-      <div>
+      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
+        <i data-feather="trending-up" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
         <h3 class="font-semibold text-xl mb-2">3. Recibe beneficios</h3>
-        <p>Nosotros gestionamos la operación (o la terciarizamos a expertos), tú recibes tus ganancias de forma
-          proporcional.</p>
+        <p class="text-gray-600">Nosotros gestionamos la operación, tú recibes tus ganancias de forma proporcional.</p>
       </div>
     </div>
   </section>
@@ -109,7 +114,7 @@
     © 2025 Catálogo de Franquicias
   </footer>
 
-  <!-- SCRIPT MENÚ HAMBURGUESA -->
+  <!-- SCRIPT MENÚ HAMBURGUESA + ICONOS -->
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
@@ -123,6 +128,9 @@
         mobileMenu.classList.remove('max-h-96', 'p-2');
       }
     });
+
+    // Inicializar Feather icons
+    feather.replace();
   </script>
 
 </body>
