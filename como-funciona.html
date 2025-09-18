@@ -4,77 +4,96 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quiénes somos - Franquicias</title>
+  <title>Cómo Funciona - Franquicias</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Heroicons CDN -->
-  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    /* Animaciones fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
 
   <!-- HEADER -->
-  <header class="bg-white shadow-md relative">
+  <header class="bg-white shadow-md">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <div class="text-xl font-bold">Franquicias</div>
-
-      <!-- Menú desktop -->
       <nav class="hidden md:flex gap-6">
-        <a href="index.html" class="hover:text-blue-600">Inicio</a>
-        <a href="quienes-somos.html" class="hover:text-blue-600 font-semibold">Quiénes somos</a>
+        <a href="quienes-somos.html" class="hover:text-blue-600">Quiénes somos</a>
+        <a href="como-funciona.html" class="hover:text-blue-600 font-semibold">Cómo funciona</a>
         <a href="index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
         <a href="index.html#contacto" class="hover:text-blue-600">Contacto</a>
       </nav>
-
-      <!-- Botón hamburguesa (solo móvil) -->
       <button id="menuBtn" class="md:hidden text-2xl">☰</button>
-    </div>
-
-    <!-- Menú móvil desplegable -->
-    <div id="mobileMenu"
-      class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-full right-4 w-48 rounded-lg md:hidden">
-      <a href="index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
-      <a href="quienes-somos.html" class="block px-4 py-2 hover:text-blue-600 font-semibold">Quiénes somos</a>
-      <a href="index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
-      <a href="index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="bg-blue-600 text-white text-center py-20 px-6">
-    <h1 class="text-3xl md:text-5xl font-bold mb-4">👉 Invierte en franquicias desde 500 €</h1>
+  <!-- Menú móvil -->
+  <div id="mobileMenu"
+    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-16 right-4 w-48 rounded-lg md:hidden">
+    <a href="quienes-somos.html" class="block px-4 py-2 hover:text-blue-600">Quiénes somos</a>
+    <a href="como-funciona.html" class="block px-4 py-2 hover:text-blue-600 font-semibold">Cómo funciona</a>
+    <a href="index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
+    <a href="index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
+  </div>
+
+  <!-- HERO ANIMADO -->
+  <section class="bg-blue-600 text-white text-center py-20 px-6 relative overflow-hidden">
+    <h1 class="text-3xl md:text-5xl font-bold mb-4">Invierte y genera ingresos pasivos fácilmente</h1>
     <p class="text-lg md:text-2xl mb-8">Nosotros gestionamos, tú recibes los beneficios.</p>
-    <!-- Botón actualizado -->
-    <a href="#como-funciona"
-      class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Quiero invertir</a>
+    <a href="quienes-somos.html"
+      class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Quiero
+      invertir</a>
+    <img src="https://img.icons8.com/ios-filled/150/ffffff/crane.png" alt="Construcción"
+      class="absolute right-4 bottom-0 w-24 md:w-32 opacity-20">
   </section>
 
-  <!-- CÓMO FUNCIONA -->
-  <section id="como-funciona" class="max-w-5xl mx-auto px-6 py-16">
-    <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">Cómo funciona</h2>
-    <div class="grid md:grid-cols-3 gap-8 text-center">
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <i data-feather="briefcase" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
-        <h3 class="font-semibold text-xl mb-2">1. Elige una franquicia</h3>
-        <p class="text-gray-600">Accede a oportunidades seleccionadas con información clara: marca, sector, inversión
-          inicial y rentabilidad.</p>
+  <!-- PASOS DE INVERSIÓN -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-12">Cómo funciona</h2>
+    <div class="grid gap-12 md:grid-cols-3 text-center">
+      <!-- Paso 1 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 fade-in">
+        <img src="https://img.icons8.com/fluency/96/000000/list.png" class="mx-auto mb-4" alt="Paso 1">
+        <h3 class="text-xl font-bold mb-3">1. Elige una franquicia</h3>
+        <p class="text-gray-600">
+          Accede a oportunidades seleccionadas con información clara: marca, sector, inversión inicial y proyección de
+          rentabilidad.
+        </p>
       </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <i data-feather="credit-card" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
-        <h3 class="font-semibold text-xl mb-2">2. Invierte fácilmente</h3>
-        <p class="text-gray-600">Participa desde cantidades bajas y conviértete en socio de una franquicia real.</p>
+      <!-- Paso 2 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 fade-in">
+        <img src="https://img.icons8.com/fluency/96/000000/money-bag.png" class="mx-auto mb-4" alt="Paso 2">
+        <h3 class="text-xl font-bold mb-3">2. Invierte fácilmente</h3>
+        <p class="text-gray-600">
+          Participa desde cantidades bajas y conviértete en socio de una franquicia real, sin complicaciones.
+        </p>
       </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-        <i data-feather="trending-up" class="w-12 h-12 mx-auto text-blue-600 mb-4"></i>
-        <h3 class="font-semibold text-xl mb-2">3. Recibe beneficios</h3>
-        <p class="text-gray-600">Nosotros gestionamos la operación, tú recibes tus ganancias de forma proporcional.</p>
+      <!-- Paso 3 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition transform hover:scale-105 fade-in">
+        <img src="https://img.icons8.com/fluency/96/000000/coin-in-hand.png" class="mx-auto mb-4" alt="Paso 3">
+        <h3 class="text-xl font-bold mb-3">3. Recibe beneficios</h3>
+        <p class="text-gray-600">
+          Nosotros gestionamos la operación (o la terciarizamos a expertos), y tú recibes tus ganancias de forma
+          proporcional.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- BENEFICIOS PARA EL INVERSOR -->
-  <section class="bg-gray-100 py-12 px-6">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">Beneficios para el inversor</h2>
-    <ul class="max-w-3xl mx-auto space-y-3 list-disc list-inside text-gray-700">
+  <section class="max-w-6xl mx-auto px-4 py-12 bg-blue-50 rounded-lg my-8 fade-in">
+    <h2 class="text-2xl font-bold mb-6 text-center">Beneficios para el inversor</h2>
+    <ul class="list-disc list-inside text-gray-700 space-y-2 max-w-2xl mx-auto">
       <li>Acceso a un sector en crecimiento.</li>
       <li>Diversificación: invierte en varias franquicias.</li>
       <li>Transparencia total con reportes en la app.</li>
@@ -83,9 +102,9 @@
   </section>
 
   <!-- BENEFICIOS PARA LA FRANQUICIA -->
-  <section class="max-w-4xl mx-auto px-6 py-12">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">Beneficios para la franquicia</h2>
-    <ul class="space-y-3 list-disc list-inside text-gray-700 max-w-3xl mx-auto">
+  <section class="max-w-6xl mx-auto px-4 py-12 bg-white rounded-lg my-8 fade-in">
+    <h2 class="text-2xl font-bold mb-6 text-center">Beneficios para la franquicia</h2>
+    <ul class="list-disc list-inside text-gray-700 space-y-2 max-w-2xl mx-auto">
       <li>Expansión sin depender de un único gran inversor.</li>
       <li>Comunidad de embajadores que apoya la marca.</li>
       <li>Gestión profesional de la operación.</li>
@@ -94,19 +113,20 @@
   </section>
 
   <!-- NUESTRO COMPROMISO -->
-  <section class="bg-gray-100 py-12 px-6">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center">Nuestro compromiso</h2>
-    <p class="max-w-3xl mx-auto text-center text-gray-700">
+  <section class="max-w-6xl mx-auto px-4 py-12 bg-blue-50 rounded-lg my-8 fade-in">
+    <h2 class="text-2xl font-bold mb-6 text-center">Nuestro compromiso</h2>
+    <p class="text-gray-700 text-center max-w-3xl mx-auto">
       Hacemos fácil lo difícil: selección de franquicias, gestión operativa, transparencia y reparto justo de
       beneficios.
     </p>
   </section>
 
   <!-- CTA FINAL -->
-  <section id="cta-final" class="text-center py-12 px-6">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">👉 Sé de los primeros en invertir en franquicias desde tu móvil</h2>
-    <a href="#" class="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-500 transition">Apúntate a la
-      lista de espera</a>
+  <section class="text-center py-12 bg-gradient-to-b from-blue-50 to-transparent fade-in">
+    <h2 class="text-3xl font-bold mb-4">Sé de los primeros en invertir</h2>
+    <a href="quienes-somos.html"
+      class="inline-block px-6 py-3 bg-yellow-400 text-black font-bold rounded-lg hover:bg-yellow-300 transition">Apúntate
+      a la lista de espera</a>
   </section>
 
   <!-- FOOTER -->
@@ -114,11 +134,13 @@
     © 2025 Catálogo de Franquicias
   </footer>
 
-  <!-- SCRIPT MENÚ HAMBURGUESA + ICONOS -->
+  <!-- SCRIPT MENÚ HAMBURGUESA Y ANIMACIONES -->
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = mobileMenu.querySelectorAll('a');
 
+    // Abrir/Cerrar menú
     menuBtn.addEventListener('click', () => {
       if (mobileMenu.classList.contains('max-h-0')) {
         mobileMenu.classList.remove('max-h-0');
@@ -129,8 +151,27 @@
       }
     });
 
-    // Inicializar Feather icons
-    feather.replace();
+    // Cerrar menú al hacer click en enlace
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('max-h-0');
+        mobileMenu.classList.remove('max-h-96', 'p-2');
+      });
+    });
+
+    // Animación fade-in al hacer scroll
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
   </script>
 
 </body>
