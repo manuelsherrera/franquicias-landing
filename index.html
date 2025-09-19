@@ -220,16 +220,19 @@
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-2xl font-bold mb-4 text-center">Contacto</h2>
 
-            <!-- FORMULARIO NETLIFY -->
-            <form name="contacto" method="POST" data-netlify="true" class="bg-white p-6 rounded shadow">
-                <!-- Campo oculto necesario -->
-                <input type="hidden" name="form-name" value="contacto">
+            <form name="contact" method="POST" data-netlify="true" class="bg-white p-6 rounded shadow">
+                <!-- Campo oculto necesario para Netlify -->
+                <input type="hidden" name="form-name" value="contact" />
 
-                <input class="w-full p-3 border rounded mb-3" name="nombre" placeholder="Nombre" required />
-                <input class="w-full p-3 border rounded mb-3" name="email" placeholder="Email" type="email" required />
+                <!-- Nombre -->
+                <input class="w-full p-3 border rounded mb-3" type="text" name="nombre" placeholder="Nombre" required />
 
-                <label class="block text-gray-700">¿Cuánto estás dispuesto a invertir?</label>
-                <select name="inversion" class="w-full p-3 border rounded mb-4" required>
+                <!-- Email -->
+                <input class="w-full p-3 border rounded mb-3" type="email" name="email" placeholder="Email" required />
+
+                <!-- Rango de inversión -->
+                <label class="block text-gray-700 mb-2">¿Cuánto estás dispuesto a invertir?</label>
+                <select class="w-full p-3 border rounded mb-4" name="inversion" required>
                     <option value="">Selecciona un rango</option>
                     <option value="menos-20000">Menos de 20.000€</option>
                     <option value="20000-50000">20.000€ - 50.000€</option>
@@ -237,10 +240,13 @@
                     <option value="mas-100000">Más de 100.000€</option>
                 </select>
 
+                <!-- Mensaje -->
                 <textarea class="w-full p-3 border rounded mb-3" name="mensaje" placeholder="Mensaje"
                     rows="4"></textarea>
 
-                <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded">Enviar</button>
+                <!-- Botón de envío -->
+                <button class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition"
+                    type="submit">Enviar</button>
             </form>
         </div>
     </section>
