@@ -255,6 +255,35 @@
                 mobileMenu.classList.remove('max-h-96', 'p-2');
             });
         });
+
+        const filtro = document.querySelector('select');
+        const franquicias = document.querySelectorAll('#catalogo article');
+
+        filtro.addEventListener('change', () => {
+            const valor = filtro.value;
+
+            franquicias.forEach(franquicia => {
+                const inversionTexto = franquicia.querySelector('p').innerText;
+                const inversion = parseInt(inversionTexto.replace(/\D/g, ''));
+
+                let mostrar = true;
+
+                if (valor === "Hasta 20.000€" && inversion > 20000) {
+                    mostrar = false;
+                } else if (valor === "20.000€ - 50.000€" && (inversion < 20000 || inversion > 50000)) {
+                    mostrar = false;
+                } else if (valor === "Más de 50.000€" && inversion <= 50000) {
+                    mostrar = false;
+                }
+
+                if (mostrar) {
+                    franquicia.style.display = "block";
+                } else {
+                    franquicia.style.display = "none";
+                }
+            });
+        });
+
     </script>
 
 </body>
