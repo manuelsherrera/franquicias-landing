@@ -219,11 +219,28 @@
     <section id="contacto" class="bg-gray-100 py-10">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-2xl font-bold mb-4 text-center">Contacto</h2>
-            <form class="bg-white p-6 rounded shadow">
-                <input class="w-full p-3 border rounded mb-3" placeholder="Nombre" />
-                <input class="w-full p-3 border rounded mb-3" placeholder="Email" type="email" />
-                <textarea class="w-full p-3 border rounded mb-3" placeholder="Mensaje" rows="4"></textarea>
-                <button class="w-full bg-blue-600 text-white p-3 rounded">Enviar</button>
+
+            <!-- FORMULARIO NETLIFY -->
+            <form name="contacto" method="POST" data-netlify="true" class="bg-white p-6 rounded shadow">
+                <!-- Campo oculto necesario -->
+                <input type="hidden" name="form-name" value="contacto">
+
+                <input class="w-full p-3 border rounded mb-3" name="nombre" placeholder="Nombre" required />
+                <input class="w-full p-3 border rounded mb-3" name="email" placeholder="Email" type="email" required />
+
+                <label class="block text-gray-700">¿Cuánto estás dispuesto a invertir?</label>
+                <select name="inversion" class="w-full p-3 border rounded mb-4" required>
+                    <option value="">Selecciona un rango</option>
+                    <option value="menos-20000">Menos de 20.000€</option>
+                    <option value="20000-50000">20.000€ - 50.000€</option>
+                    <option value="50000-100000">50.000€ - 100.000€</option>
+                    <option value="mas-100000">Más de 100.000€</option>
+                </select>
+
+                <textarea class="w-full p-3 border rounded mb-3" name="mensaje" placeholder="Mensaje"
+                    rows="4"></textarea>
+
+                <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded">Enviar</button>
             </form>
         </div>
     </section>
