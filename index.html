@@ -39,7 +39,7 @@
         <h1 class="text-3xl md:text-5xl font-bold mb-4">Cómo funciona</h1>
         <p class="text-lg md:text-2xl mb-8">Invierte y genera ingresos pasivos fácilmente.</p>
         <a href="como-funciona.html"
-            class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Sabes más</a>
+            class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Saber más</a>
     </section>
 
     <section class="text-center py-12 bg-gradient-to-b from-blue-50 to-transparent">
@@ -219,47 +219,32 @@
     <section id="contacto" class="bg-gray-100 py-10">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-2xl font-bold mb-4 text-center">Contacto</h2>
-            <form name="contact" method="POST" data-netlify="true" action="gracias.html"
-                class="bg-white p-6 rounded shadow">
-                <input type="hidden" name="form-name" value="contact">
+            <form name="contacto" method="POST" data-netlify="true">
+                <!-- Campos ocultos para Netlify -->
+                <input type="hidden" name="form-name" value="contacto">
+                <input type="hidden" name="redirect" value="gracias.html">
 
-                <div class="mb-3">
-                    <label class="block text-gray-700 mb-1">Nombre</label>
-                    <input class="w-full p-3 border rounded" type="text" name="nombre" required>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input class="w-full p-3 border rounded mb-3" placeholder="Nombre" name="nombre" required />
+                    <input class="w-full p-3 border rounded mb-3" placeholder="Apellido" name="apellido" required />
                 </div>
 
-                <div class="mb-3">
-                    <label class="block text-gray-700 mb-1">Apellido</label>
-                    <input class="w-full p-3 border rounded" type="text" name="apellido" required>
-                </div>
+                <input class="w-full p-3 border rounded mb-3" placeholder="Email" type="email" name="email" required />
+                <input class="w-full p-3 border rounded mb-3" placeholder="Teléfono" type="tel" name="telefono" />
 
-                <div class="mb-3">
-                    <label class="block text-gray-700 mb-1">Email</label>
-                    <input class="w-full p-3 border rounded" type="email" name="email" required>
-                </div>
+                <label class="block text-gray-700 mt-2">¿Cuánto estás dispuesto a invertir?</label>
+                <select class="w-full p-3 border rounded mb-4" name="inversion">
+                    <option value="">Selecciona un rango</option>
+                    <option value="menos-20000">Menos de 20.000€</option>
+                    <option value="20000-50000">20.000€ - 50.000€</option>
+                    <option value="50000-100000">50.000€ - 100.000€</option>
+                    <option value="mas-100000">Más de 100.000€</option>
+                </select>
 
-                <div class="mb-3">
-                    <label class="block text-gray-700 mb-1">Número de teléfono</label>
-                    <input class="w-full p-3 border rounded" type="tel" name="telefono">
-                </div>
+                <textarea class="w-full p-3 border rounded mb-3" placeholder="Mensaje" rows="4"
+                    name="mensaje"></textarea>
 
-                <div class="mb-3">
-                    <label class="block text-gray-700 mb-1">¿Cuánto estás dispuesto a invertir?</label>
-                    <select class="w-full p-3 border rounded" name="inversion">
-                        <option value="">Selecciona un rango</option>
-                        <option value="menos-20000">Menos de 20.000€</option>
-                        <option value="20000-50000">20.000€ - 50.000€</option>
-                        <option value="50000-100000">50.000€ - 100.000€</option>
-                        <option value="mas-100000">Más de 100.000€</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label class="block text-gray-700 mb-1">Mensaje</label>
-                    <textarea class="w-full p-3 border rounded" name="mensaje" rows="4"></textarea>
-                </div>
-
-                <button class="w-full bg-blue-600 text-white p-3 rounded" type="submit">Enviar</button>
+                <button class="w-full bg-blue-600 text-white p-3 rounded">Enviar</button>
             </form>
         </div>
     </section>
