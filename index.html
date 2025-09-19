@@ -224,13 +224,21 @@
                 <!-- Campo oculto para Netlify -->
                 <input type="hidden" name="form-name" value="contact">
 
-                <input class="w-full p-3 border rounded mb-3" type="text" name="nombre" placeholder="Nombre" required />
-                <input class="w-full p-3 border rounded mb-3" type="text" name="apellido" placeholder="Apellido"
-                    required />
-                <input class="w-full p-3 border rounded mb-3" type="email" name="email" placeholder="Email" required />
-                <input class="w-full p-3 border rounded mb-3" type="tel" name="telefono"
-                    placeholder="Número de teléfono" />
+                <!-- Fila 1: Nombre + Apellido -->
+                <div class="flex flex-col md:flex-row gap-3 mb-3">
+                    <input class="flex-1 p-3 border rounded" type="text" name="nombre" placeholder="Nombre" required />
+                    <input class="flex-1 p-3 border rounded" type="text" name="apellido" placeholder="Apellido"
+                        required />
+                </div>
 
+                <!-- Fila 2: Email + Teléfono -->
+                <div class="flex flex-col md:flex-row gap-3 mb-4">
+                    <input class="flex-1 p-3 border rounded" type="email" name="email" placeholder="Email" required />
+                    <input class="flex-1 p-3 border rounded" type="tel" name="telefono"
+                        placeholder="Número de teléfono" />
+                </div>
+
+                <!-- Inversión -->
                 <label class="block text-gray-700 mb-1">¿Cuánto estás dispuesto a invertir?</label>
                 <select class="w-full p-3 border rounded mb-4" name="inversion">
                     <option value="">Selecciona un rango</option>
