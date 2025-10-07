@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ERAVENDING Mascotas 24/7 - Franquicia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1f2937;
+            background-color: #f9fafb;
+            scroll-behavior: smooth;
+        }
+
+        /* HERO con transición integrada imagen → azul */
+        .hero-transition {
+            position: relative;
+            background-image: url('../images/eravending-mascotas1.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 64, 175, 0);
+            transition: background 2.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-transition.loaded .hero-overlay {
+            background: rgba(30, 64, 175, 0.92);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .hero-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: #1E3A8A;
+            color: #f3f4f6;
+            text-align: center;
+            padding: 1.5rem 0;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md relative z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-xl font-bold text-blue-600">POOLIFY</div>
+            <nav class="hidden md:flex gap-6">
+                <a href="../index.html" class="hover:text-blue-600">Inicio</a>
+                <a href="../como-funciona.html" class="hover:text-blue-600">Cómo funciona</a>
+                <a href="../index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
+                <a href="../index.html#contacto" class="hover:text-blue-600">Contacto</a>
+            </nav>
+            <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">☰</button>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobileMenu"
+            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute right-4 top-16 w-48 rounded-lg md:hidden">
+            <a href="../index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
+            <a href="../como-funciona.html" class="block px-4 py-2 hover:text-blue-600">Cómo funciona</a>
+            <a href="../index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
+            <a href="../index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="hero-transition text-white text-center py-20 px-6 relative overflow-hidden">
+        <div class="hero-overlay" id="heroOverlay"></div>
+        <div id="heroContent" class="hero-content">
+            <p class="uppercase tracking-widest text-yellow-300 mb-2">Máquinas de vending · Tienda 24/7 de mascotas</p>
+            <h1 class="text-5xl font-bold mb-4">ERAVENDING Mascotas 24/7</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">
+                Tienda de mascotas 24 horas sin personal, autolavado y alimentación premium.
+            </p>
+        </div>
+    </section>
+
+    <!-- DESCRIPCIÓN -->
+    <section class="max-w-5xl mx-auto px-4 py-12 text-center fade-in">
+        <h2 class="text-3xl font-bold text-blue-600 mb-6">Un mercado en crecimiento</h2>
+        <p class="text-gray-700 leading-relaxed">
+            El mercado de productos para mascotas en España vive un crecimiento sostenido. En 2023, la alimentación de
+            animales de compañía
+            alcanzó 1.600 M€ (+13,5% interanual) y se registraron ~9,3 M de perros y ~5,9 M de gatos. Las previsiones
+            indican expansión continua,
+            impulsada por la “humanización” de las mascotas y la demanda de productos premium y especializados.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+            ERAVENDING MASCOTAS 24/7 es un negocio automático abierto 24 horas, sin costes de personal, con una máquina
+            de autolavado de mascotas
+            como gran reclamo. Además, ofrece vending de comida seca y comida natural congelada sin aditivos (la más
+            vendida), cubriendo
+            necesidades clave del cliente en cualquier momento del día.
+        </p>
+        <p class="text-gray-700 leading-relaxed mt-4">
+            El inversor puede supervisar su tienda en tiempo real mediante cámara HD y controlar el stock y ventas de
+            las máquinas de manera remota.
+        </p>
+    </section>
+
+    <!-- CLAVES DE ÉXITO -->
+    <section class="bg-white py-12 fade-in">
+        <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Claves de Éxito</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+            <div class="card">
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Sin costes de personal: operación 24/7 y gastos fijos reducidos.</li>
+                    <li>Ingresos pasivos continuos, también en horarios nocturnos.</li>
+                    <li>Gestión remota: stock, ventas y supervisión por cámara HD.</li>
+                    <li>Negocio temático, innovador y escalable para amantes de mascotas.</li>
+                    <li>Oferta completa: autolavado + alimentación seca y natural.</li>
+                </ul>
+            </div>
+            <div class="flex justify-center items-center">
+                <img src="../images/eravending-mascotas2.jpg" alt="Autolavado y vending para mascotas"
+                    class="rounded-lg shadow-lg">
+            </div>
+        </div>
+    </section>
+
+    <!-- DATOS ECONÓMICOS -->
+    <section class="max-w-6xl mx-auto px-4 py-12 fade-in">
+        <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Datos Económicos</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card text-gray-700">
+                <p><strong class="text-blue-600">Inversión desde:</strong> 19.900€</p>
+                <p><strong class="text-blue-600">¿Qué incluye esta inversión?</strong> 19.900€</p>
+                <p><strong class="text-blue-600">Ayuda en financiación:</strong> Sí</p>
+                <p><strong class="text-blue-600">Recuperación de la inversión:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Facturación anual estimada:</strong> Consultar</p>
+                <p><strong class="text-blue-600">EBITDA:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Beneficio anual estimado:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Royalty:</strong> 5%</p>
+            </div>
+            <div class="card text-gray-700">
+                <p><strong class="text-blue-600">Duración del contrato:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Internacional:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Nº de establecimientos:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Población mínima:</strong> 5.000 habitantes</p>
+                <p><strong class="text-blue-600">Requiere local:</strong> Sí</p>
+                <p><strong class="text-blue-600">Dimensiones mínimas del local:</strong> 15 m²</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUISITOS -->
+    <section class="bg-blue-50 py-12 fade-in">
+        <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Requisitos del Franquiciado</h2>
+        <ul class="text-gray-700 space-y-2 max-w-3xl mx-auto text-center">
+            <li><strong class="text-blue-600">Perfil del franquiciado:</strong> Consultar</li>
+            <li><strong class="text-blue-600">¿Requiere experiencia?</strong> —</li>
+            <li><strong class="text-blue-600">Dedicación mínima:</strong> —</li>
+            <li><strong class="text-blue-600">Dirigido a:</strong> Amantes de los animales, emprendedores, inversores y
+                personas que buscan nuevos ingresos. ¡Reserva tu zona!</li>
+        </ul>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="text-center py-16 bg-gradient-to-b from-blue-50 to-white fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-blue-600">¿Quieres invertir en ERAVENDING Mascotas 24/7?</h2>
+        <p class="text-gray-700 mb-8">Un modelo 24/7 sin personal, con control remoto y alta demanda.</p>
+        <a href="../index.html#contacto"
+            class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Quiero
+            invertir</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Poolify · Catálogo de Franquicias
+    </footer>
+
+    <script>
+        // Transición suave: imagen → azul y aparición del contenido
+        window.addEventListener('load', () => {
+            const hero = document.getElementById('hero');
+            const content = document.getElementById('heroContent');
+            setTimeout(() => {
+                hero.classList.add('loaded');
+                setTimeout(() => content.classList.add('visible'), 1500);
+            }, 1200);
+        });
+
+        // Fade-in general
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.2 });
+        faders.forEach(fader => observer.observe(fader));
+
+        // Menú móvil
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('max-h-0')) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-96', 'p-2');
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-96', 'p-2');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-96', 'p-2');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
