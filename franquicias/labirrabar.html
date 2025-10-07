@@ -51,15 +51,25 @@
 <body>
 
     <!-- HEADER -->
-    <header class="bg-white shadow-md">
+    <header class="bg-white shadow-md relative z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="text-xl font-bold text-blue-600">POOLIFY</div>
+            <div class="text-xl font-bold text-blue-600">Franquicias</div>
             <nav class="hidden md:flex gap-6">
                 <a href="../index.html" class="hover:text-blue-600">Inicio</a>
                 <a href="../como-funciona.html" class="hover:text-blue-600">Cómo funciona</a>
                 <a href="../index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
                 <a href="../index.html#contacto" class="hover:text-blue-600">Contacto</a>
             </nav>
+            <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+        </div>
+
+        <!-- Menú móvil -->
+        <div id="mobileMenu"
+            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-16 right-4 w-48 rounded-lg md:hidden">
+            <a href="../index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
+            <a href="../como-funciona.html" class="block px-4 py-2 hover:text-blue-600">Cómo funciona</a>
+            <a href="../index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
+            <a href="../index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
         </div>
     </header>
 
@@ -157,7 +167,29 @@
     </footer>
 
     <script>
-        // Animaciones de aparición suave
+        // Menú hamburguesa móvil
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('max-h-0')) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-96', 'p-2');
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-96', 'p-2');
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-96', 'p-2');
+            });
+        });
+
+        // Animación de aparición
         const faders = document.querySelectorAll('.fade-in');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
