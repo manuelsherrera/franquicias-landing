@@ -6,12 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Birra Bar - Franquicia</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             color: #1f2937;
             background-color: #f9fafb;
             scroll-behavior: smooth;
+        }
+
+        /* HERO con transición integrada imagen → azul */
+        .hero-transition {
+            position: relative;
+            background-image: url('../images/labirrabar1.jpeg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 64, 175, 0);
+            transition: background 2.5s ease-in-out;
+            z-index: 1;
+        }
+
+        .hero-transition.loaded .hero-overlay {
+            background: rgba(30, 64, 175, 0.92);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .hero-content.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .fade-in {
@@ -53,19 +88,19 @@
     <!-- HEADER -->
     <header class="bg-white shadow-md relative z-50">
         <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="text-xl font-bold text-blue-600">Franquicias</div>
+            <div class="text-xl font-bold text-blue-600">POOLIFY</div>
             <nav class="hidden md:flex gap-6">
                 <a href="../index.html" class="hover:text-blue-600">Inicio</a>
                 <a href="../como-funciona.html" class="hover:text-blue-600">Cómo funciona</a>
                 <a href="../index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
                 <a href="../index.html#contacto" class="hover:text-blue-600">Contacto</a>
             </nav>
-            <button id="menuBtn" class="md:hidden text-2xl">☰</button>
+            <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">☰</button>
         </div>
 
         <!-- Menú móvil -->
         <div id="mobileMenu"
-            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute top-16 right-4 w-48 rounded-lg md:hidden">
+            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute right-4 top-16 w-48 rounded-lg md:hidden">
             <a href="../index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
             <a href="../como-funciona.html" class="block px-4 py-2 hover:text-blue-600">Cómo funciona</a>
             <a href="../index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
@@ -74,12 +109,16 @@
     </header>
 
     <!-- HERO -->
-    <section class="bg-blue-600 text-white text-center py-20 px-6 relative overflow-hidden">
-        <p class="uppercase tracking-widest text-yellow-300 mb-2">Hostelería y restauración · Hamburguesas</p>
-        <h1 class="text-5xl font-bold mb-4">La Birra Bar</h1>
-        <p class="text-lg md:text-xl max-w-2xl mx-auto">
-            La hamburguesería con más premios internacionales a la mejor hamburguesa.
-        </p>
+    <section id="hero" class="hero-transition text-white text-center py-20 px-6 relative overflow-hidden">
+        <div class="hero-overlay" id="heroOverlay"></div>
+
+        <div id="heroContent" class="hero-content">
+            <p class="uppercase tracking-widest text-yellow-300 mb-2">Hostelería y restauración · Hamburguesas</p>
+            <h1 class="text-5xl font-bold mb-4">La Birra Bar</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">
+                La hamburguesería con más premios internacionales a la mejor hamburguesa.
+            </p>
+        </div>
     </section>
 
     <!-- DESCRIPCIÓN -->
@@ -112,8 +151,7 @@
                 </ul>
             </div>
             <div class="flex justify-center items-center">
-                <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=600&q=80"
-                    alt="Hamburguesa gourmet" class="rounded-lg shadow-lg">
+                <img src="../images/labirrabar2.jpg" alt="Hamburguesa gourmet" class="rounded-lg shadow-lg">
             </div>
         </div>
     </section>
@@ -167,7 +205,30 @@
     </footer>
 
     <script>
-        // Menú hamburguesa móvil
+        // Transición suave: imagen → azul con fade integrado
+        window.addEventListener('load', () => {
+            const hero = document.getElementById('hero');
+            const overlay = document.getElementById('heroOverlay');
+            const content = document.getElementById('heroContent');
+
+            setTimeout(() => {
+                hero.classList.add('loaded');
+                setTimeout(() => {
+                    content.classList.add('visible');
+                }, 1500);
+            }, 1200);
+        });
+
+        // Animación fade-in general
+        const faders = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.2 });
+        faders.forEach(fader => observer.observe(fader));
+
+        // --- MENÚ MÓVIL ---
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileLinks = mobileMenu.querySelectorAll('a');
@@ -188,15 +249,6 @@
                 mobileMenu.classList.remove('max-h-96', 'p-2');
             });
         });
-
-        // Animación de aparición
-        const faders = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.2 });
-        faders.forEach(fader => observer.observe(fader));
     </script>
 
 </body>
