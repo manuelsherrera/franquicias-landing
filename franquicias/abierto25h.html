@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABIERTO 25 HORAS - Franquicia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1f2937;
+            background: #f9fafb;
+            scroll-behavior: smooth
+        }
+
+        .hero-transition {
+            position: relative;
+            background-image: url('../images/abierto25h1.jpg');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(30, 64, 175, 0);
+            transition: background 2.2s ease-in-out;
+            z-index: 1
+        }
+
+        .hero-transition.loaded .hero-overlay {
+            background: rgba(30, 64, 175, .92)
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out
+        }
+
+        .hero-content.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity .8s ease-out, transform .8s ease-out
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .card {
+            background: #fff;
+            border-radius: .75rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+            padding: 2rem;
+            transition: all .25s ease
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, .12);
+            transform: translateY(-2px)
+        }
+
+        footer {
+            background: #1E3A8A;
+            color: #f3f4f6;
+            text-align: center;
+            padding: 1.25rem 0;
+            font-size: .9rem
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md relative z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="text-xl font-bold text-blue-600">POOLIFY</div>
+            <nav class="hidden md:flex gap-6">
+                <a href="../index.html" class="hover:text-blue-600">Inicio</a>
+                <a href="../como-funciona.html" class="hover:text-blue-600">Cómo funciona</a>
+                <a href="../index.html#catalogo" class="hover:text-blue-600">Catálogo</a>
+                <a href="../index.html#contacto" class="hover:text-blue-600">Contacto</a>
+            </nav>
+            <button id="menuBtn" class="md:hidden text-2xl focus:outline-none">☰</button>
+        </div>
+        <!-- Menú móvil -->
+        <div id="mobileMenu"
+            class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out flex flex-col bg-white shadow-md absolute right-4 top-16 w-48 rounded-lg md:hidden">
+            <a href="../index.html" class="block px-4 py-2 hover:text-blue-600">Inicio</a>
+            <a href="../como-funciona.html" class="block px-4 py-2 hover:text-blue-600">Cómo funciona</a>
+            <a href="../index.html#catalogo" class="block px-4 py-2 hover:text-blue-600">Catálogo</a>
+            <a href="../index.html#contacto" class="block px-4 py-2 hover:text-blue-600">Contacto</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="hero-transition text-white text-center py-20 px-6 relative overflow-hidden">
+        <div class="hero-overlay" id="heroOverlay"></div>
+        <div id="heroContent" class="hero-content">
+            <p class="uppercase tracking-widest text-yellow-300 mb-2">Máquinas de vending · Vending 24/7</p>
+            <h1 class="text-5xl font-bold mb-4">ABIERTO 25 HORAS</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">
+                Tiendas automatizadas 24/7 sin personal, inversión ágil y servicio integral con más de 30 años de
+                experiencia.
+            </p>
+        </div>
+    </section>
+
+    <!-- DESCRIPCIÓN -->
+    <section class="max-w-6xl mx-auto px-4 py-12 fade-in">
+        <h2 class="text-3xl font-bold text-blue-600 text-center mb-6">Descripción del Negocio</h2>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <p class="text-gray-700 leading-relaxed">
+                    Sin empleados (reposición y limpieza &lt; 1h/día), compatible con otra actividad y locales desde 3
+                    m².
+                    Sin canon de entrada y con mínimo riesgo: las tiendas y equipos pueden reubicarse.
+                </p>
+                <p class="text-gray-700 leading-relaxed mt-4">
+                    La marca cuenta con servicio técnico propio, tiendas piloto, exposición de equipos y gestión de
+                    financiación.
+                    Inauguran de media 3 tiendas/mes y formalizan 5 tiendas/mes, ofreciendo proyecto llave en mano:
+                    diseño, obra civil, rotulación, buzoneo y entrega de llaves.
+                </p>
+            </div>
+            <div class="rounded-lg overflow-hidden shadow">
+                <img src="../images/abierto25h2.jpg" alt="Tienda automatizada Abierto 25 Horas"
+                    class="w-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- VENTAJAS -->
+    <section class="bg-white py-12 fade-in">
+        <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Ventajas de Abierto 25 Horas</h2>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-4">
+            <div class="card">
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Equipo humano experto y visible.</li>
+                    <li>Saber hacer: precios, escaparatismo, promociones y selección de equipos por zona.</li>
+                    <li>Sistemas propios: antivandálicos y de carga.</li>
+                    <li>Formación con reponedores.</li>
+                    <li>Descuentos en primeras marcas (Coca-Cola, Panrico, Font Vella, Matutano...).</li>
+                    <li>Exclusividad de zona y videovigilancia en tiempo real.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>Gestión de financiación por asesores.</li>
+                    <li>Equipos de última generación: snacks, bebidas, bollería, sex shop, grow shop, comida caliente,
+                        parafarmacia, higiene, helados, saludable, etc.</li>
+                    <li>Pagos con billetes, tarjeta y móvil; telemetría para ver ventas, caja, stock y alarmas.</li>
+                    <li>Locales disponibles en toda España para instalar tiendas automatizadas.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATOS ECONÓMICOS -->
+    <section class="max-w-6xl mx-auto px-4 py-12 fade-in">
+        <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Datos Económicos</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card text-gray-700">
+                <p><strong class="text-blue-600">Inversión desde:</strong> 32.900€</p>
+                <p><strong class="text-blue-600">Ayuda en financiación:</strong> Acuerdos con entidades bancarias</p>
+                <p><strong class="text-blue-600">Royalty:</strong> 85 € / mes</p>
+                <p><strong class="text-blue-600">Canon publicidad:</strong> No hay</p>
+                <p><strong class="text-blue-600">Facturación anual estimada:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Recuperación de la inversión:</strong> Consultar</p>
+            </div>
+            <div class="card text-gray-700">
+                <p><strong class="text-blue-600">Duración del contrato:</strong> 5 años</p>
+                <p><strong class="text-blue-600">Internacional:</strong> Consultar</p>
+                <p><strong class="text-blue-600">Nº establecimientos:</strong> 240</p>
+                <p><strong class="text-blue-600">Creación de la empresa:</strong> 1990</p>
+                <p><strong class="text-blue-600">Inicio de franquicia:</strong> 2000</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center py-16 bg-gradient-to-b from-blue-50 to-white fade-in">
+        <h2 class="text-3xl font-bold mb-4 text-blue-600">¿Te interesa ABIERTO 25 HORAS?</h2>
+        <p class="text-gray-700 mb-8">Da el paso hacia un negocio automatizado 24/7 con soporte integral.</p>
+        <a href="../index.html#contacto"
+            class="bg-yellow-400 text-black font-bold py-3 px-6 rounded-lg hover:bg-yellow-300 transition">Quiero
+            invertir</a>
+    </section>
+
+    <footer>© 2025 Poolify · Catálogo de Franquicias</footer>
+
+    <script>
+        // Hero overlay → azul y aparición de contenido
+        window.addEventListener('load', () => {
+            const hero = document.getElementById('hero');
+            const content = document.getElementById('heroContent');
+            setTimeout(() => {
+                hero.classList.add('loaded');
+                setTimeout(() => content.classList.add('visible'), 900);
+            }, 800);
+        });
+
+        // Fade-in al hacer scroll
+        const faders = document.querySelectorAll('.fade-in');
+        const io = new IntersectionObserver(es => es.forEach(e => {
+            if (e.isIntersecting) e.target.classList.add('visible');
+        }), { threshold: 0.2 });
+        faders.forEach(el => io.observe(el));
+
+        // Menú móvil
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        menuBtn.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('max-h-0')) {
+                mobileMenu.classList.remove('max-h-0');
+                mobileMenu.classList.add('max-h-96', 'p-2');
+            } else {
+                mobileMenu.classList.add('max-h-0');
+                mobileMenu.classList.remove('max-h-96', 'p-2');
+            }
+        });
+        mobileLinks.forEach(a => a.addEventListener('click', () => {
+            mobileMenu.classList.add('max-h-0');
+            mobileMenu.classList.remove('max-h-96', 'p-2');
+        }));
+    </script>
+</body>
+
+</html>
